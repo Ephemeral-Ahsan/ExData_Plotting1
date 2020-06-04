@@ -10,9 +10,8 @@ DateTime <- strptime(DateTimeString, format = "%d/%m/%Y %H:%M:%S")
 Data <- cbind(DateTime, data[,3:9])
 
 # Plot the lineplot
-plot(Data$DateTime, as.numeric(Data$Global_active_power), type="l", xlab="Day", 
+plot(Data$DateTime, as.numeric(Data$Global_active_power), type="l", xlab="", 
      ylab="Global Active Power (kilowatts)")
-title(main="Global Active Power Over 2 Days")
 
 # Save the plot
 dev.copy(png, "plot2.png")

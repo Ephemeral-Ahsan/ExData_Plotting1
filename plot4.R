@@ -13,22 +13,22 @@ Data <- cbind(DateTime, data[,3:9])
 Data[,2:7] <- sapply(Data[,2:7], as.numeric)
 
 # Configure the plotting canvas
-par(mar=c(3,4,1,1), oma=c(0,0,0,0), mfcol=c(2,2))
+par(mfcol=c(2,2), oma=c(0,0,0,0), mar= c(4,4,2,1), cex=0.7)
 
 # Plot the lineplot
-plot(Data$DateTime, as.numeric(Data$Global_active_power), type="l", xlab="Day", 
+plot(Data$DateTime, as.numeric(Data$Global_active_power), type="l", xlab="", 
      ylab="Global Active Power (kilowatts)")
 
-plot(Data$DateTime, Data$Sub_metering_1, type="l", xlab="Day", 
+plot(Data$DateTime, Data$Sub_metering_1, type="l", xlab="", 
      ylab="Energy sub metering")
 points(Data$DateTime, Data$Sub_metering_2, type="l", col="red")
 points(Data$DateTime, Data$Sub_metering_3, type="l", col="blue")
-legend("topright", legend=c("Sub metering 1", "Sub metering 2", "Sub metering 3"),
-       col=c("black", "red", "blue"), lwd=1)
+legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+       col=c("black", "red", "blue"), lwd=1, bty = "n")
 
-with(Data, plot(DateTime, Voltage, type="l"))
+with(Data, plot(DateTime, Voltage, type="l", xlab="datetime"))
 
-with(Data, plot(DateTime, Global_reactive_power, type="l"))
+with(Data, plot(DateTime, Global_reactive_power, type="l", xlab="datetime"))
 
 
 # Save the plot
